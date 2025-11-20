@@ -1,0 +1,9 @@
+{
+  "C_Cpp.intelliSenseEngine": "default",
+  "files.associations": {
+    "servo.h": "c",
+    "esp_log.h": "c",
+    "esp_log_level.h": "c",
+    "freertos.h": "c"
+  }
+}
