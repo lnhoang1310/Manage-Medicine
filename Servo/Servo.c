@@ -38,8 +38,8 @@ void Servo_SetAngle(Servo_Typedef *servo, float angle)
 {
     if (angle < 0.0f)
         angle = 0.0f;
-    if (angle > 180.0f)
-        angle = 180.0f;
+    if (angle > 200.0f)
+        angle = 200.0f;
 
     servo->angle = angle;
 

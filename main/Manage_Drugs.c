@@ -10,8 +10,8 @@ static const char *TAG = "Main";
 Servo_Typedef servo1, servo2, servo3, servo4;
 Drug_Typedef drugs[DRUG_COUNT] = {
     {.name = "Paracetamol 500mg", .nums = 0, .servo = &servo1},
-    {.name = "B", .nums = 0, .servo = &servo2},
-    {.name = "C", .nums = 0, .servo = &servo3},
+    {.name = "Paracetamol 600mg", .nums = 0, .servo = &servo2},
+    {.name = "Paracetamol 700mg", .nums = 0, .servo = &servo3},
     {.name = "D", .nums = 0, .servo = &servo4}};
 
 // Callback khi có dữ liệu MQTT
@@ -35,12 +35,16 @@ void servo_task(void *pvParameters)
                 uint8_t nums = drugs[i].nums; // copy ra để không thay đổi gốc
                 while (nums--)
                 {
-                    Servo_SetAngle(drugs[i].servo, 0.0f);
-                    vTaskDelay(pdMS_TO_TICKS(200));
+                    for(int16_t j=179; j>=0; j--){
+                        Servo_SetAngle(drugs[i].servo, (float)j);
+                        vTaskDelay(pdMS_TO_TICKS(10));
+                    }
+                    vTaskDelay(pdMS_TO_TICKS(1000));
                     Servo_SetAngle(drugs[i].servo, 180.0f);
-                    vTaskDelay(pdMS_TO_TICKS(200));
-                    // ESP_LOGI(TAG, "Dispensed one unit of %s", drugs[i].name);
+                    vTaskDelay(pdMS_TO_TICKS(1000));
+                    ESP_LOGI(TAG, "Dispensed one unit of %s", drugs[i].name);
                 }
+                drugs[i].nums = 0; // reset sau khi đã cấp phát
             }
             Medicine_ClearFlagControlServo();
         }
