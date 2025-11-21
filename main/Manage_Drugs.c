@@ -11,8 +11,7 @@ Servo_Typedef servo1, servo2, servo3, servo4;
 Drug_Typedef drugs[DRUG_COUNT] = {
     {.name = "Paracetamol 500mg", .nums = 0, .servo = &servo1},
     {.name = "Paracetamol 600mg", .nums = 0, .servo = &servo2},
-    {.name = "Paracetamol 700mg", .nums = 0, .servo = &servo3},
-    {.name = "D", .nums = 0, .servo = &servo4}};
+    {.name = "Paracetamol 700mg", .nums = 0, .servo = &servo3}};
 
 // Callback khi có dữ liệu MQTT
 void medicin_callback(Drug_Typedef drugs[DRUG_COUNT])
@@ -39,7 +38,7 @@ void servo_task(void *pvParameters)
                         Servo_SetAngle(drugs[i].servo, (float)j);
                         vTaskDelay(pdMS_TO_TICKS(10));
                     }
-                    vTaskDelay(pdMS_TO_TICKS(1000));
+                    vTaskDelay(pdMS_TO_TICKS(500));
                     Servo_SetAngle(drugs[i].servo, 180.0f);
                     vTaskDelay(pdMS_TO_TICKS(1000));
                     ESP_LOGI(TAG, "Dispensed one unit of %s", drugs[i].name);
@@ -55,13 +54,12 @@ void servo_task(void *pvParameters)
 void app_main(void)
 {
     // Wifi
-    Wifi_Init(WIFI_SSID, WIFI_PASSWORD);
+    Wifi_Init();
 
     // Khởi tạo servo
     Servo_Init(&servo1, SERVO1_TIMER, SERVO1_CHANNEL, SERVO1_GPIO);
     Servo_Init(&servo2, SERVO2_TIMER, SERVO2_CHANNEL, SERVO2_GPIO);
     Servo_Init(&servo3, SERVO3_TIMER, SERVO3_CHANNEL, SERVO3_GPIO);
-    Servo_Init(&servo4, SERVO4_TIMER, SERVO4_CHANNEL, SERVO4_GPIO);
 
     // Khởi tạo MQTT nhưng chưa start
     MedicineMQTT_Init(MQTT_BROKER_URI, MQTT_TOPIC_SUB, drugs);

@@ -3,7 +3,7 @@
 
 #include "driver/ledc.h"
 
-#define SERVO_NUM 4
+#define SERVO_NUM 3
 #define SERVO_MIN_PULSE_WIDTH_US 450
 #define SERVO_MAX_PULSE_WIDTH_US 2500
 #define SERVO_FREQ_HZ 50       
@@ -17,8 +17,7 @@
 #define SERVO3_CHANNEL LEDC_CHANNEL_2
 #define SERVO3_GPIO 3
 #define SERVO4_TIMER LEDC_TIMER_3
-#define SERVO4_CHANNEL LEDC_CHANNEL_3
-#define SERVO4_GPIO 4
+
 
 
 typedef struct{

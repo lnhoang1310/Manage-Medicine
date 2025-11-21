@@ -6,7 +6,7 @@
 #include <stdbool.h>
 
 #define MAX_LEN_NAME 100
-#define DRUG_COUNT 4
+#define DRUG_COUNT 3
 #define MQTT_BROKER_URI "mqtts://medicine-mqtt.huy.lat:8883"
 #define MQTT_TOPIC_SUB "medicine/control"
 
