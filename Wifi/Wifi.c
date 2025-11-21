@@ -12,6 +12,7 @@ static const char *TAG = "Wifi";
 uint8_t wifi_connect_fail_count = 0;
 bool wifi_connected = false;
 bool wifi_running_smartconfig = false;
+bool mqtt_connected = false;
 
 static void wifi_event_handler(void *arg, esp_event_base_t event_base,
                                int32_t event_id, void *event_data)
@@ -23,6 +24,8 @@ static void wifi_event_handler(void *arg, esp_event_base_t event_base,
     else if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_DISCONNECTED)
     {
         wifi_connected = false;
+        mqtt_connected = false;
+
 
         if (!wifi_running_smartconfig)
         {
@@ -39,11 +42,15 @@ static void wifi_event_handler(void *arg, esp_event_base_t event_base,
     {
         wifi_connect_fail_count = 0;
         wifi_connected = true;
+        wifi_running_smartconfig = false;
 
         ip_event_got_ip_t *event = (ip_event_got_ip_t *)event_data;
         ESP_LOGI(TAG, "Got IP: " IPSTR, IP2STR(&event->ip_info.ip));
 
-        MedicineMQTT_Start();
+        if(!mqtt_connected){
+            MedicineMQTT_Start();
+            mqtt_connected = true;
+        }
     }
 }
 
@@ -132,7 +139,7 @@ bool Wifi_LoadFromNVS(char *ssid, char *pass)
 
 void wifi_fallback_task(void *arg)
 {
-    vTaskDelay(pdMS_TO_TICKS(8000));
+    vTaskDelay(pdMS_TO_TICKS(5000));
 
     if (!wifi_connected)
     {
