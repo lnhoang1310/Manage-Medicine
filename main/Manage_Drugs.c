@@ -64,8 +64,6 @@ void app_main(void)
     // Khởi tạo MQTT nhưng chưa start
     MedicineMQTT_Init(MQTT_BROKER_URI, MQTT_TOPIC_SUB, drugs);
     MedicineMQTT_SetCallback(medicin_callback);
-    // **Không gọi MedicineMQTT_Start() ở đây**
-    // MQTT sẽ start trong wifi_event_handler khi ESP32 got IP
 
     // Tạo task xử lý servo
     xTaskCreate(servo_task, "servo_task", 4096, NULL, 2, NULL);
