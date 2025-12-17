@@ -12,6 +12,10 @@ static const char *TAG = "Wifi";
 bool wifi_connected = false;
 bool mqtt_connected = false;
 
+static esp_netif_t *ap_netif = NULL;
+static esp_netif_t *sta_netif = NULL;
+static httpd_handle_t server = NULL;
+
 /* ======================================================
    HTTP HANDLER: /wifi  (App gửi thông tin WiFi vào)
    ====================================================== */
@@ -19,7 +23,8 @@ static esp_err_t wifi_post_handler(httpd_req_t *req)
 {
     char buf[200];
     int len = httpd_req_recv(req, buf, sizeof(buf));
-    if (len <= 0) return ESP_FAIL;
+    if (len <= 0)
+        return ESP_FAIL;
 
     buf[len] = 0;
     ESP_LOGI(TAG, "Received WiFi JSON: %s", buf);
@@ -48,8 +53,10 @@ static esp_err_t wifi_post_handler(httpd_req_t *req)
     strcpy((char *)cfg.sta.password, pass);
 
     ESP_LOGI(TAG, "Switching to STA...");
+    esp_wifi_stop();
     esp_wifi_set_mode(WIFI_MODE_STA);
     esp_wifi_set_config(WIFI_IF_STA, &cfg);
+    esp_wifi_start();
     esp_wifi_connect();
 
     return ESP_OK;
@@ -78,6 +85,39 @@ httpd_handle_t start_webserver(void)
 }
 
 /* ======================================================
+   Start AP for provisioning
+   ====================================================== */
+void wifi_start_ap(void)
+{
+    ESP_LOGW(TAG, "Starting AP Provisioning...");
+
+    if (server)
+    {
+        httpd_stop(server);
+        server = NULL;
+    }
+
+    wifi_config_t ap_cfg = {
+        .ap = {
+            .ssid = "ESP_SETUP",
+            .password = "12345678",
+            .channel = 1,
+            .max_connection = 4,
+            .authmode = WIFI_AUTH_WPA_WPA2_PSK,
+        },
+    };
+
+    esp_wifi_stop();
+    esp_wifi_set_mode(WIFI_MODE_AP);
+    esp_wifi_set_config(WIFI_IF_AP, &ap_cfg);
+    esp_wifi_start();
+
+    server = start_webserver();
+
+    ESP_LOGI(TAG, "AP ready: SSID=ESP_SETUP PASS=12345678");
+}
+
+/* ======================================================
    Event Handler WiFi
    ====================================================== */
 static void wifi_event_handler(void *arg, esp_event_base_t event_base,
@@ -91,11 +131,9 @@ static void wifi_event_handler(void *arg, esp_event_base_t event_base,
         }
         else if (event_id == WIFI_EVENT_STA_DISCONNECTED)
         {
+            mqtt_connected = false;
             wifi_connected = false;
             ESP_LOGW(TAG, "WiFi disconnected → switching back AP");
-
-            // Restart AP so user can set WiFi again
-            extern void wifi_start_ap();
             wifi_start_ap();
         }
     }
@@ -112,34 +150,6 @@ static void wifi_event_handler(void *arg, esp_event_base_t event_base,
             MedicineMQTT_Start();
         }
     }
-}
-
-/* ======================================================
-   Start AP for provisioning
-   ====================================================== */
-void wifi_start_ap()
-{
-    ESP_LOGW(TAG, "Starting AP Provisioning...");
-
-    esp_netif_create_default_wifi_ap();
-
-    wifi_config_t ap_cfg = {
-        .ap = {
-            .ssid = "ESP_SETUP",
-            .ssid_len = 0,
-            .password = "12345678",
-            .channel = 1,
-            .max_connection = 4,
-            .authmode = WIFI_AUTH_WPA_WPA2_PSK
-        }
-    };
-
-    esp_wifi_set_mode(WIFI_MODE_AP);
-    esp_wifi_set_config(WIFI_IF_AP, &ap_cfg);
-
-    start_webserver();
-
-    ESP_LOGI(TAG, "AP ready: SSID=ESP_SETUP PASS=12345678");
 }
 
 /* ======================================================
@@ -167,35 +177,38 @@ bool Wifi_LoadFromNVS(char *ssid, char *pass)
 void Wifi_Init(void)
 {
     ESP_LOGI(TAG, "Initializing WiFi...");
+
     nvs_flash_init();
     esp_netif_init();
     esp_event_loop_create_default();
 
+    ap_netif = esp_netif_create_default_wifi_ap();
+    sta_netif = esp_netif_create_default_wifi_sta();
+
     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
     esp_wifi_init(&cfg);
 
-    esp_event_handler_instance_register(WIFI_EVENT, ESP_EVENT_ANY_ID, wifi_event_handler, NULL, NULL);
-    esp_event_handler_instance_register(IP_EVENT, IP_EVENT_STA_GOT_IP, wifi_event_handler, NULL, NULL);
+    esp_event_handler_instance_register(
+        WIFI_EVENT, ESP_EVENT_ANY_ID, wifi_event_handler, NULL, NULL);
+    esp_event_handler_instance_register(
+        IP_EVENT, IP_EVENT_STA_GOT_IP, wifi_event_handler, NULL, NULL);
 
     char ssid[32] = {0};
     char pass[64] = {0};
 
     if (Wifi_LoadFromNVS(ssid, pass))
     {
-        ESP_LOGI(TAG, "Connecting stored WiFi: %s", ssid);
-
         wifi_config_t sta_cfg = {0};
         strcpy((char *)sta_cfg.sta.ssid, ssid);
         strcpy((char *)sta_cfg.sta.password, pass);
 
-        esp_netif_create_default_wifi_sta();
         esp_wifi_set_mode(WIFI_MODE_STA);
         esp_wifi_set_config(WIFI_IF_STA, &sta_cfg);
         esp_wifi_start();
+        esp_wifi_connect();
     }
     else
     {
-        esp_wifi_start();
         wifi_start_ap();
     }
 }

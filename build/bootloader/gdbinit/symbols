@@ -27,4 +27,4 @@ set confirm off
 set confirm on
 
 # Load application symbols
-file C:/Users/Dell/Documents/ESPIDF/Manage_Drugs/build/bootloader/bootloader.elf
+file D:/Code/ESPIDF/Manage_Drugs/build/bootloader/bootloader.elf

@@ -1,4 +1,4 @@
-/* * Data converted from C:/Users/Dell/Documents/ESPIDF/Manage_Drugs/Medicine/isrgrootx1.pem
+/* * Data converted from D:/Code/ESPIDF/Manage_Drugs/Medicine/isrgrootx1.pem
  * (null byte appended)
  */
 .data

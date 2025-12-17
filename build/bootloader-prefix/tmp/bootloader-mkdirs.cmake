@@ -10,18 +10,18 @@ if(NOT EXISTS "C:/Espressif/frameworks/esp-idf-v5.5.1/components/bootloader/subp
   file(MAKE_DIRECTORY "C:/Espressif/frameworks/esp-idf-v5.5.1/components/bootloader/subproject")
 endif()
 file(MAKE_DIRECTORY
-  "C:/Users/Dell/Documents/ESPIDF/Manage_Drugs/build/bootloader"
-  "C:/Users/Dell/Documents/ESPIDF/Manage_Drugs/build/bootloader-prefix"
-  "C:/Users/Dell/Documents/ESPIDF/Manage_Drugs/build/bootloader-prefix/tmp"
-  "C:/Users/Dell/Documents/ESPIDF/Manage_Drugs/build/bootloader-prefix/src/bootloader-stamp"
-  "C:/Users/Dell/Documents/ESPIDF/Manage_Drugs/build/bootloader-prefix/src"
-  "C:/Users/Dell/Documents/ESPIDF/Manage_Drugs/build/bootloader-prefix/src/bootloader-stamp"
+  "D:/Code/ESPIDF/Manage_Drugs/build/bootloader"
+  "D:/Code/ESPIDF/Manage_Drugs/build/bootloader-prefix"
+  "D:/Code/ESPIDF/Manage_Drugs/build/bootloader-prefix/tmp"
+  "D:/Code/ESPIDF/Manage_Drugs/build/bootloader-prefix/src/bootloader-stamp"
+  "D:/Code/ESPIDF/Manage_Drugs/build/bootloader-prefix/src"
+  "D:/Code/ESPIDF/Manage_Drugs/build/bootloader-prefix/src/bootloader-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "C:/Users/Dell/Documents/ESPIDF/Manage_Drugs/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
+    file(MAKE_DIRECTORY "D:/Code/ESPIDF/Manage_Drugs/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "C:/Users/Dell/Documents/ESPIDF/Manage_Drugs/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "D:/Code/ESPIDF/Manage_Drugs/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
 endif()

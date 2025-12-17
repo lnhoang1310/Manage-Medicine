@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Dell/Documents/ESPIDF/Manage_Drugs/main
+# Install script for directory: D:/Code/ESPIDF/Manage_Drugs/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -39,6 +39,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/Dell/Documents/ESPIDF/Manage_Drugs/build/esp-idf/newlib/src/port/cmake_install.cmake")
+  include("D:/Code/ESPIDF/Manage_Drugs/build/esp-idf/newlib/src/port/cmake_install.cmake")
 endif()
 

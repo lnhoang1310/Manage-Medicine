@@ -1,6 +1,6 @@
 /* Automatically generated file; DO NOT EDIT */
 /* Espressif IoT Development Framework Linker Script */
-/* Generated from: C:\Users\Dell\Documents\ESPIDF\Manage_Drugs\build\esp-idf\esp_system\ld\sections.ld.in */
+/* Generated from: D:\Code\ESPIDF\Manage_Drugs\build\esp-idf\esp_system\ld\sections.ld.in */
 
 /*
 

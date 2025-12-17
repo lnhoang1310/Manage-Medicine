@@ -1,0 +1,298 @@
+Command: C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.1\tools/idf_monitor.py -p COM11 -b 115200 --toolchain-prefix riscv32-esp-elf- --target esp32c3 --revision 3 --decode-panic backtrace D:\Code\ESPIDF\Manage_Drugs\build\Manage_Drugs.elf D:\Code\ESPIDF\Manage_Drugs\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.11_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.1\tools\idf.py' '-p' 'COM11'
+[0;32mI (250) esp_image: segment 4: paddr=00101a04 vaddr=4038b730 sizeESP-ROM:esp32c3-api1-20210207[0m
+Build:Feb  7 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0xd (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40383ea4
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x15ac
+load:0x403cbf10,len:0xc34
+load:0x403ce710,len:0x2fd0
+entry 0x403cbf1a
+[0;32mI (24) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Nov 22 2025 18:22:47[0m
+[0;32mI (25) boot: chip revision: v0.4[0m
+[0;32mI (25) boot: efuse block revision: v1.3[0m
+[0;32mI (28) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (32) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (36) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (39) boot: Enabling RNG early entropy source...[0m
+[0;32mI (44) boot: Partition Table:[0m
+[0;32mI (46) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (53) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (59) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (66) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (72) boot: End of partition table[0m
+[0;32mI (76) esp_image: segment 0: paddr=00010020 vaddr=3c0d0020 size=2196ch (137580) map[0m
+[0;32mI (105) esp_image: segment 1: paddr=00031994 vaddr=3fc94a00 size=02f4ch ( 12108) load[0m
+[0;32mI (108) esp_image: segment 2: paddr=000348e8 vaddr=40380000 size=0b730h ( 46896) load[0m
+[0;32mI (117) esp_image: segment 3: paddr=00040020 vaddr=42000020 size=c19dch (793052) map[0m
+[0;32mI (244) esp_image: segment 4: paddr=00101a04 vaddr=4038b730 size=09228h ( 37416) load[0m
+[0;32mI (251) esp_image: segment 5: paddr=0010ac34 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (258) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (258) boot: Disabling RNG early entropy source...[0m
+[0;32mI (269) cpu_start: Unicore app[0m
+[0;32mI (278) cpu_start: Pro cpu start user code[0m
+[0;32mI (278) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (278) app_init: Application information:[0m
+[0;32mI (278) app_init: Project name:     Manage_Drugs[0m
+[0;32mI (282) app_init: App version:      bd157e2-dirty[0m
+[0;32mI (287) app_init: Compile time:     Nov 22 2025 18:22:29[0m
+[0;32mI (292) app_init: ELF file SHA256:  01c434d42...[0m
+[0;32mI (296) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (300) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (304) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (308) efuse_init: Chip rev:         v0.4[0m
+[0;32mI (311) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (318) heap_init: At 3FC9C360 len 00023CA0 (143 KiB): RAM[0m
+[0;32mI (323) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (329) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (335) heap_init: At 50000020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (341) spi_flash: detected chip: generic[0m
+[0;32mI (344) spi_flash: flash io: dio[0m
+[0;33mW (347) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (359) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (365) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (372) main_task: Started on CPU0[0m
+[0;32mI (372) main_task: Calling app_main()[0m
+[0;32mI (3372) Wifi: Initializing WiFi...[0m
+[0;32mI (3382) pp: pp rom version: 9387209[0m
+[0;32mI (3382) net80211: net80211 rom version: 9387209[0m
+[0;32mI (3392) wifi:wifi driver task: 3fca4af0, prio:23, stack:6656, core=0[0m
+[0;32mI (3392) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (3392) wifi:wifi certification version: v7.0[0m
+[0;32mI (3392) wifi:config NVS flash: enabled[0m
+[0;32mI (3392) wifi:config nano formatting: disabled[0m
+[0;32mI (3402) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (3402) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (3412) wifi:Init management short buffer num: 32[0m
+[0;32mI (3412) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (3422) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (3422) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (3422) wifi:Init static rx buffer num: 10[0m
+[0;32mI (3432) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (3432) wifi_init: rx ba win: 6[0m
+[0;32mI (3442) wifi_init: accept mbox: 6[0m
+[0;32mI (3442) wifi_init: tcpip mbox: 32[0m
+[0;32mI (3442) wifi_init: udp mbox: 6[0m
+[0;32mI (3442) wifi_init: tcp mbox: 6[0m
+[0;32mI (3452) wifi_init: tcp tx win: 5760[0m
+[0;32mI (3452) wifi_init: tcp rx win: 5760[0m
+[0;32mI (3452) wifi_init: tcp mss: 1440[0m
+[0;32mI (3462) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (3462) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (3472) Wifi: Connecting stored WiFi: Lâm Hoàng[0m
+[0;33mW (3482) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (3482) phy_init: phy_version 1201,bae5dd99,Mar  3 2025,15:36:21[0m
+[0;32mI (3542) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (3582) wifi:mode : sta (20:6e:f1:6b:5e:5c)[0m
+[0;32mI (3582) wifi:enable tsf[0m
+[0;32mI (3582) Main: App initialized. Waiting for WiFi and MQTT...[0m
+[0;32mI (3582) main_task: Returned from app_main()[0m
+[0;33mW (5992) Wifi: WiFi disconnected → switching back AP[0m
+[0;33mW (5992) Wifi: Starting AP Provisioning...[0m
+[0;32mI (5992) wifi:mode : softAP (20:6e:f1:6b:5e:5d)[0m
+[0;32mI (5992) wifi:Total power save buffer number: 16[0m
+[0;32mI (6002) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (6002) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (6012) wifi:Total power save buffer number: 16[0m
+[0;32mI (6012) Wifi: HTTP Server started[0m
+[0;32mI (6012) Wifi: AP ready: SSID=ESP_SETUP PASS=12345678[0m
+[0;32mI (6022) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+[0;32mI (6032) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+[0;32mI (12592) wifi:new:<1,1>, old:<1,1>, ap:<1,1>, sta:<255,255>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (12592) wifi:station: 14:ac:60:77:b3:77 join, AID=1, bgn, 40U[0m
+[0;32mI (12722) esp_netif_lwip: DHCP server assigned IP to a client, IP is: 192.168.4.2[0m
+[0;32mI (13452) wifi:<ba-add>idx:2 (ifx:1, 14:ac:60:77:b3:77), tid:0, ssn:17, winSize:64[0m
+[0;32mI (113512) Wifi: Received WiFi JSON: {"ssid":"Thém","pass":"Tham2003"}[0m
+[0;33mW (113512) Wifi: Provision SSID=Thém PASS=Tham2003[0m
+[0;32mI (113522) Wifi: Switching to STA...[0m
+[0;32mI (113522) wifi:station: 14:ac:60:77:b3:77 leave, AID = 1, reason = 2, bss_flags is 756835, bss:0x3fcb0330[0m
+[0;32mI (113532) wifi:new:<1,0>, old:<1,1>, ap:<1,1>, sta:<255,255>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (113532) wifi:<ba-del>idx:2, tid:0[0m
+[0;32mI (113542) wifi:new:<1,1>, old:<1,0>, ap:<1,1>, sta:<255,255>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (113552) wifi:mode : sta (20:6e:f1:6b:5e:5c)[0m
+[0;32mI (113552) wifi:enable tsf[0m
+[1;31mE (113562) wifi:sta is connecting, cannot set config[0m
+[1;31mE (113562) wifi:sta is connecting, return error[0m
+[0;33mW (113562) httpd_txrx: httpd_sock_err: error in recv : 113[0m
+[0;33mW (115972) Wifi: WiFi disconnected → switching back AP[0m
+[0;33mW (115972) Wifi: Starting AP Provisioning...[0m
+[1;31mE (115972) esp_netif_lwip: esp_netif_new_api: Failed to configure netif with config=0x3fca2074 (config or if_key is NULL or duplicate key)[0m
+
+assert failed: esp_netif_create_default_wifi_ap wifi_default.c:408 (netif)
+Core  0 register dump:
+MEPC    : 0x40385cc4  RA      : 0x40385c82  SP      : 0x3fca1f40  GP      : 0x3fc95200  
+TP      : 0x3fca2230  T0      : 0x37363534  T1      : 0x7271706f  T2      : 0x33323130  
+S0/FP   : 0x0000007d  S1      : 0x00000001  A0      : 0x3fca1f7c  A1      : 0x3fc96a4d  
+A2      : 0x00000001  A3      : 0x00000029  A4      : 0x00000001  A5      : 0x3fc9c000  
+A6      : 0x7a797877  A7      : 0x76757473  S2      : 0x00000009  S3      : 0x3fca209a  
+S4      : 0x3fc96a4c  S5      : 0x00000000  S6      : 0xffffffff  S7      : 0x3fcab6c8  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x6e6d6c6b  T4      : 0x6a696867  T5      : 0x66656463  T6      : 0x62613938  
+MSTATUS : 0x00001881  MTVEC   : 0x40380001  MCAUSE  : 0x00000002  MTVAL   : 0x00000000  
+MHARTID : 0x00000000  
+
+add symbol table from file "D:\Code\ESPIDF\Manage_Drugs\build\bootloader\bootloader.elf"
+warning: could not convert 'main' from the host encoding (CP1252) to UTF-32.
+This normally should not happen, please file a bug report.
+panic_abort (details=details@entry=0x3fca1f7c "assert failed: esp_netif_create_default_wifi_ap wifi_default.c:408 (netif)") at C:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/panic.c:483
+483	    asm("unimp");   // should be an invalid operation on RISC-V targets
+#0  panic_abort (details=details@entry=0x3fca1f7c "assert failed: esp_netif_create_default_wifi_ap wifi_default.c:408 (netif)") at C:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/panic.c:483
+#1  0x40385c82 in esp_system_abort (details=details@entry=0x3fca1f7c "assert failed: esp_netif_create_default_wifi_ap wifi_default.c:408 (netif)") at C:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_system/port/esp_system_chip.c:87
+#2  0x4038e870 in __assert_func (file=0x3c0d8ba2 "", line=<optimized out>, func=<optimized out>, expr=0x3c0e0b28 "") at C:/Espressif/frameworks/esp-idf-v5.5.1/components/newlib/src/assert.c:80
+#3  0x4201b4bc in esp_netif_create_default_wifi_ap () at C:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_wifi/src/wifi_default.c:409
+#4  0x4200a7e0 in wifi_start_ap () at D:/Code/ESPIDF/Manage_Drugs/Wifi/Wifi.c:126
+#5  0x4200a902 in wifi_event_handler (arg=0x3fca1f7c, event_base=0x3fc96a4d "", event_id=1, event_data=0x3fcb1458) at D:/Code/ESPIDF/Manage_Drugs/Wifi/Wifi.c:107
+#6  0x420bd0ec in handler_instances_remove (handlers=0x3fca1f7c, handler_ctx=0x3fc96a4d, legacy=true) at C:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_event/esp_event.c:311
+#7  0x420bd9fa in esp_event_loop_run (event_loop=0x3fca1460, ticks_to_run=4294967295) at C:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_event/esp_event.c:692
+#8  0x420bdb30 in esp_event_loop_run_task (args=0x3fca1460, args@entry=<error reading variable: value has been optimized out>) at C:/Espressif/frameworks/esp-idf-v5.5.1/components/esp_event/esp_event.c:112
+#9  0x40386de0 in vPortTaskWrapper (pxCode=<optimized out>, pvParameters=<optimized out>) at C:/Espressif/frameworks/esp-idf-v5.5.1/components/freertos/FreeRTOS-Kernel/portable/riscv/port.c:255
+
+
+
+ELF file SHA256: 01c434d42
+
+Rebooting...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0xd (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40385daa
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x15ac
+load:0x403cbf10,len:0xc34
+load:0x403ce710,len:0x2fd0
+entry 0x403cbf1a
+[0;32mI (24) boot: ESP-IDF v5.5.1 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Nov 22 2025 18:22:47[0m
+[0;32mI (24) boot: chip revision: v0.4[0m
+[0;32mI (24) boot: efuse block revision: v1.3[0m
+[0;32mI (27) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (31) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (35) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (39) boot: Enabling RNG early entropy source...[0m
+[0;32mI (43) boot: Partition Table:[0m
+[0;32mI (46) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (52) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (59) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (65) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (72) boot: End of partition table[0m
+I (75) esp_image: segment 0: paddr=00010020 vaddr=3c0d0020 size=2196ch (137580) map
+[0;32mI (104) esp_image: segment 1: paddr=00031994 vaddr=3fc94a00 size=02f4ch ( 12108) load[0m
+[0;32mI (107) esp_image: segment 2: paddr=000348e8 vaddr=40380000 size=0b730h ( 46896) load[0m
+[0;32mI (117) esp_image: segment 3: paddr=00040020 vaddr=42000020 size=c19dch (793052) map[0m
+[0;32mI (244) esp_image: segment 4: paddr=00101a04 vaddr=4038b730 size=09228h ( 37416) load[0m
+[0;32mI (251) esp_image: segment 5: paddr=0010ac34 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (258) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (258) boot: Disabling RNG early entropy source...[0m
+[0;32mI (269) cpu_start: Unicore app[0m
+[0;32mI (277) cpu_start: Pro cpu start user code[0m
+[0;32mI (277) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (277) app_init: Application information:[0m
+[0;32mI (277) app_init: Project name:     Manage_Drugs[0m
+[0;32mI (282) app_init: App version:      bd157e2-dirty[0m
+[0;32mI (286) app_init: Compile time:     Nov 22 2025 18:22:29[0m
+[0;32mI (291) app_init: ELF file SHA256:  01c434d42...[0m
+[0;32mI (295) app_init: ESP-IDF:          v5.5.1[0m
+[0;32mI (299) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (303) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (307) efuse_init: Chip rev:         v0.4[0m
+[0;32mI (311) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (317) heap_init: At 3FC9C360 len 00023CA0 (143 KiB): RAM[0m
+[0;32mI (322) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (328) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (334) heap_init: At 50000020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (341) spi_flash: detected chip: generic[0m
+[0;32mI (343) spi_flash: flash io: dio[0m
+[0;33mW (346) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (359) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (365) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (372) main_task: Started on CPU0[0m
+[0;32mI (372) main_task: Calling app_main()[0m
+[0;32mI (3372) Wifi: Initializing WiFi...[0m
+[0;32mI (3382) pp: pp rom version: 9387209[0m
+[0;32mI (3382) net80211: net80211 rom version: 9387209[0m
+[0;32mI (3392) wifi:wifi driver task: 3fca4af0, prio:23, stack:6656, core=0[0m
+[0;32mI (3392) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (3392) wifi:wifi certification version: v7.0[0m
+[0;32mI (3392) wifi:config NVS flash: enabled[0m
+[0;32mI (3392) wifi:config nano formatting: disabled[0m
+[0;32mI (3402) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (3402) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (3412) wifi:Init management short buffer num: 32[0m
+[0;32mI (3412) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (3422) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (3422) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (3422) wifi:Init static rx buffer num: 10[0m
+[0;32mI (3432) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (3432) wifi_init: rx ba win: 6[0m
+[0;32mI (3442) wifi_init: accept mbox: 6[0m
+[0;32mI (3442) wifi_init: tcpip mbox: 32[0m
+[0;32mI (3442) wifi_init: udp mbox: 6[0m
+[0;32mI (3442) wifi_init: tcp mbox: 6[0m
+[0;32mI (3452) wifi_init: tcp tx win: 5760[0m
+[0;32mI (3452) wifi_init: tcp rx win: 5760[0m
+[0;32mI (3452) wifi_init: tcp mss: 1440[0m
+[0;32mI (3462) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (3462) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (3472) Wifi: Connecting stored WiFi: Thém[0m
+[0;33mW (3472) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (3502) phy_init: phy_version 1201,bae5dd99,Mar  3 2025,15:36:21[0m
+[0;32mI (3552) wifi:mode : sta (20:6e:f1:6b:5e:5c)[0m
+[0;32mI (3552) wifi:enable tsf[0m
+[0;32mI (3552) Main: App initialized. Waiting for WiFi and MQTT...[0m
+[0;32mI (3552) main_task: Returned from app_main()[0m
+[0;32mI (3722) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (3722) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (3892) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (4112) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (14112) wifi:state: run -> init (0xcc00)[0m
+[0;32mI (14122) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;33mW (14122) Wifi: WiFi disconnected → switching back AP[0m
+[0;33mW (14122) Wifi: Starting AP Provisioning...[0m
+[0;32mI (14122) wifi:mode : softAP (20:6e:f1:6b:5e:5d)[0m
+[0;32mI (14132) wifi:Total power save buffer number: 16[0m
+[0;32mI (14132) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (14142) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (14152) wifi:Total power save buffer number: 16[0m
+[0;32mI (14152) Wifi: HTTP Server started[0m
+[0;32mI (14152) Wifi: AP ready: SSID=ESP_SETUP PASS=12345678[0m
+[0;32mI (14152) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+[0;32mI (14162) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+[0;32mI (31682) wifi:new:<1,1>, old:<1,1>, ap:<1,1>, sta:<255,255>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (31682) wifi:station: 14:ac:60:77:b3:77 join, AID=1, bgn, 40U[0m
+[0;32mI (33022) wifi:<ba-add>idx:2 (ifx:1, 14:ac:60:77:b3:77), tid:0, ssn:23, winSize:64[0m
+[0;32mI (36742) esp_netif_lwip: DHCP server assigned IP to a client, IP is: 192.168.4.2[0m
+[0;32mI (65632) Wifi: Received WiFi JSON: {"ssid":"Thém","pass":"Tham2003"}[0m
+[0;33mW (65632) Wifi: Provision SSID=Thém PASS=Tham2003[0m
+[0;32mI (65632) Wifi: Switching to STA...[0m
+[0;32mI (65632) wifi:station: 14:ac:60:77:b3:77 leave, AID = 1, reason = 2, bss_flags is 756835, bss:0x3fcb02d8[0m
+[0;32mI (65642) wifi:new:<1,0>, old:<1,1>, ap:<1,1>, sta:<255,255>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (65652) wifi:<ba-del>idx:2, tid:0[0m
+[0;32mI (65652) wifi:new:<1,1>, old:<1,0>, ap:<1,1>, sta:<255,255>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (65662) wifi:mode : sta (20:6e:f1:6b:5e:5c)[0m
+[0;32mI (65662) wifi:enable tsf[0m
+[1;31mE (65682) wifi:sta is connecting, cannot set config[0m
+[1;31mE (65682) wifi:sta is connecting, return error[0m
+[0;33mW (65682) httpd_txrx: httpd_sock_err: error in recv : 113[0m
+[0;32mI (65742) wifi:new:<6,0>, old:<1,1>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (65742) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (65972) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (66052) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (66072) wifi:connected with Thém, aid = 1, channel 6, BW20, bssid = 16:d8:00:b0:f8:6b[0m
+[0;32mI (66072) wifi:security: WPA2-PSK, phy: bgn, rssi: -55[0m
+[0;32mI (66082) wifi:pm start, type: 1[0m
+
+[0;32mI (66082) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (66082) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+[0;32mI (66132) wifi:<ba-add>idx:0 (ifx:0, 16:d8:00:b0:f8:6b), tid:0, ssn:2, winSize:64[0m
+[0;32mI (66152) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (67162) Wifi: Got IP: 172.20.10.2[0m
+[0;32mI (67162) esp_netif_handlers: sta ip: 172.20.10.2, mask: 255.255.255.240, gw: 172.20.10.1[0m
+[0;32mI (69782) MedicineMQTT: MQTT connected, subscribing topic[0m
+[0;32mI (153722) MedicineMQTT: MQTT DATA: {"Paracetamol 700mg":1}[0m
+[0;32mI (153722) MedicineCallback: Drug: Paracetamol 500mg, Nums: 0[0m
+[0;32mI (153722) MedicineCallback: Drug: Paracetamol 600mg, Nums: 0[0m
+[0;32mI (153732) MedicineCallback: Drug: Paracetamol 700mg, Nums: 1[0m
+[0;32mI (157032) Main: Dispensed one unit of Paracetamol 700mg[0m
